@@ -2,7 +2,7 @@
 Condicionales if
 '''
 
-dato=int(input("Ingrese un numero"))
+dato=int(input("Ingrese un numero: "))
 
 if dato > 0:
     print("El numero ingresado es  positivo")
