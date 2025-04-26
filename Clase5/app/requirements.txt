@@ -1,0 +1,7 @@
+Flask==2.0.2                  # Framework web ligero para construir aplicaciones web en Python.
+mysql-connector-python==8.0.32 # Conector oficial de MySQL para Python (permite conectar y trabajar con bases de datos MySQL).
+pymysql==1.0.2                 # Alternativa a mysql-connector, otra librería para conectar Python con MySQL, usando solo código Python.
+Werkzeug==2.1.2                # Librería que maneja internamente solicitudes HTTP, sesiones, y enrutamiento; base fundamental que usa Flask.
+
+
+
