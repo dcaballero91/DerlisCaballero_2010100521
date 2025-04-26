@@ -3,12 +3,13 @@ from flask import Flask
 from login import login
 from login2 import login2
 
+
 app = Flask(__name__)
 
 # Registrar el blueprint de login
 app.register_blueprint(login)
-
 app.register_blueprint(login2)
+
 @app.route('/', methods=['GET'])
 def hello():
     return 'Hola Unida'

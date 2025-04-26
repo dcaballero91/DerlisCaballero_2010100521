@@ -6,6 +6,8 @@ login = Blueprint('login', __name__)
 def llamarServicioSet():
     user = request.json.get('user')
     password = request.json.get('password')
+    rol = request.json.get('rol')
+    print(rol)
     
     codRes, menRes, accion = inicializarVariables(user, password)
 
@@ -25,6 +27,7 @@ def inicializarVariables(user, password):
     
     try:
         print("Verificar login")
+        print("Local",password,"Remote:", password,"UserLocal:",userLocal,"UserRemote",user)
         if password == passLocal and user == userLocal:
             print("Usuario y contraseña OK")
             accion = "Success"
@@ -32,7 +35,9 @@ def inicializarVariables(user, password):
             print("Usuario o contraseña incorrecta")
             accion = "Usuario o contraseña incorrecta"
             codRes = 'ERROR'
-            menRes = 'Credenciales incorrectas'
+            menRes = 'Credenciales o usuario incorrectas'
+
+
     except Exception as e:
         print("ERROR", str(e))
         codRes = 'ERROR'
