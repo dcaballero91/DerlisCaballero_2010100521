@@ -9,7 +9,8 @@ DB_CONFIG = {
     'host': 'localhost',   # Cambia esto si tu base de datos está en un contenedor Docker
     'user': 'unida',     # Reemplaza con tu usuario de base de datos
     'password': 'unida123', # Reemplaza con tu contraseña de base de datos
-    'database': 'jaguarete'  # Reemplaza con el nombre de tu base de datos
+    'database': 'jaguarete', # Reemplaza con el nombre de tu base de datos
+    'port':'3306'  
 }
 
 @login2.route('/login2', methods=['POST'])
@@ -39,7 +40,7 @@ def verificar_credenciales(user, password):
         cursor = connection.cursor(dictionary=True)
         
         # Ejecutar la consulta SQL
-        query = "SELECT username FROM users WHERE username = %s AND password = %s"
+        query = "SELECT username FROM users WHERE username = %s AND pass = %s"
         cursor.execute(query, (user, password))
         
         # Obtener el resultado
