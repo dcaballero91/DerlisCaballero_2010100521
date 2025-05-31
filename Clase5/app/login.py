@@ -1,40 +1,34 @@
 from flask import Blueprint, request, jsonify
 
-login = Blueprint('login', __name__)
+cliente = Blueprint('cliente', __name__)
 
-@login.route('/login', methods=['POST'])
+@login.route('/cliente', methods=['POST'])
 def llamarServicioSet():
-    user = request.json.get('user')
-    password = request.json.get('password')
-
-    
-    codRes, menRes, accion = inicializarVariables(user, password)
+    ci = request.json.get('ci')
+   
+    codRes, menRes, accion = inicializarVariables(ci)
 
     salida = {
         'codRes': codRes,
         'menRes': menRes,
-        'usuario': user,
+        'ci': ci,
         'accion': accion
     }
     return jsonify(salida)
 
 def inicializarVariables(user, password):
-    userLocal = "dcaballero"
-    passLocal = "unida123"
+    ciLocal = "4133266"
     codRes = 'SIN_ERROR'
     menRes = 'OK'
     
     try:
-        print("Verificar login")
-        print("Local",password,"Remote:", password,"UserLocal:",userLocal,"UserRemote",user)
-        if password == passLocal and user == userLocal:
-            print("Usuario y contraseña OK")
+        if ciLocal == ci:
             accion = "Success"
         else:
-            print("Usuario o contraseña incorrecta")
-            accion = "Usuario o contraseña incorrecta"
+            print("Cliente no existe")
+            accion = "Cliente no encontrado"
             codRes = 'ERROR'
-            menRes = 'Credenciales o usuario incorrectas'
+            menRes = 'Cliente no existe en db'
 
 
     except Exception as e:
